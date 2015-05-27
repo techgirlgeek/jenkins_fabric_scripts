@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -x
 env
 
 if [ -d $JENKINS_HOME/.git ]; then
