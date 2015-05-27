@@ -1,2 +1,2 @@
 #!/bin/bash -xe
-whoami
+env
