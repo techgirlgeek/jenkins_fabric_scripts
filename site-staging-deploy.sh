@@ -8,5 +8,5 @@ if [ $1 == "nrsmboulder.org" ]; then
 fi
 
 # ssh into devweb rebase codebase to staging
-ssh devweb "cd /web/$site/public && git fetch && git rebase && drush updb -y && drush cc all && drush fra -y && drush cc all" 
+ssh devweb "cd /web/$site/public && git checkout staging && git fetch && git rebase && drush updb -y && drush cc all && drush fra -y && drush cc all" 
 
