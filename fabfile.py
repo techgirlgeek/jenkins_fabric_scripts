@@ -14,7 +14,7 @@ def staging_reslife_post_deploy(path, site, path2, master):
   run("/usr/bin/jenkins-scripts/site-reslife-staging-post.sh %s %s %s %s" % (path, site, path2, master))
 
 def jenkins_scripts_deploy():
-  run("/user/bin/jenkins-scripts/jenkins-scripts-deploy.sh")
+  run("/usr/bin/jenkins-scripts/jenkins-scripts-deploy.sh")
 
 def test(path,site,path2):
   run("/usr/bin/jenkins-scripts/test.sh %s %s %s" % (path, site, path2))
