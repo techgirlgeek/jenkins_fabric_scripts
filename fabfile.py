@@ -7,10 +7,10 @@ def env():
 def staging_deploy(path, site, path2):
   run("/usr/bin/jenkins-scripts/site-deploy-staging.sh %s %s %s" % (path, site, path2))
 
-def staging_oncampus_post_deploy(slave,site):
+def staging_oncampus_post_deploy(path, site, path2, slave):
   run("/usr/bin/jenkins-scripts/site-oncampus-staging-post.sh % % % %" % (path, site, path2, slave))
 
-def staging_reslife_post_deploy(master,site):
+def staging_reslife_post_deploy(path, site, path2, master):
   run("/usr/bin/jenkins-scripts/site-reslife-staging-post.sh % % % %" % (path, site, path2, master))
 
 def test(path,site,path2):
