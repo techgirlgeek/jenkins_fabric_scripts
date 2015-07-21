@@ -1,7 +1,7 @@
 #!/bin/bash -x
 
 # Change directory to get to jenkins-scripts on server
-cd /usr/bin/jenkins-scripts
+cd $1
 
 # Make sure repository is up-to-date
 git fetch && git rebase
