@@ -29,7 +29,7 @@ def jenkins_scripts_deploy(path):
   run("/usr/bin/jenkins-scripts/jenkins-scripts-deploy.sh %s" % (path))
 
 def site_deploy_myroom(path, site, path2, branch):
-  run("/usr/bin/jenkins-scripts/site-deploy-myroom.sh %s %s %s" % (path, site, path2, branch))
+  run("/usr/bin/jenkins-scripts/site-deploy-myroom.sh %s %s %s %s" % (path, site, path2, branch))
 
 def test(path,site,path2):
   run("/usr/bin/jenkins-scripts/test.sh %s %s %s" % (path, site, path2))
