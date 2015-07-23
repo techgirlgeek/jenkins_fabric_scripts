@@ -1,8 +1,17 @@
 #!/bin/bash -x
 env
 
-# ssh into hdsapache0 rebase codebase to myroom master
-ssh prodweb "cd /var/www/web/oncampus.colorado.edu/public/sites/all/modules/custom/myroom && git fetch && git rebase && drush updb -y && drush cc all && wget --no-check-certificate -O - -q https://a0.hdslc.colorado.edu/clear_apc.php" 
+# cd install directory on server
+cd /$1/$2/$3 
 
-# ssh into hdsapache1 rebase codebase to myroom master
-ssh prodweb1 "cd /var/www/web/oncampus.colorado.edu/public/sites/all/modules/custom/myroom && git fetch && git rebase && drush cc all && wget --no-check-certificate -O - -q https://a1.hdslc.colorado.edu/clear_apc.php"
+# Checkout appropriate git repository
+git checkout $4
+
+# fetch branches and rebase 
+git fetch && git rebase 
+
+# Perform and database updates, if need be
+drush updb -y 
+
+# Clear drupal cache
+drush cc all 
