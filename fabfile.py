@@ -4,8 +4,8 @@ from fabric.api import env, run
 def env():
   run("env")
 
-def site_deploy(path, site, path2):
-  run("/usr/bin/jenkins-scripts/site-deploy.sh %s %s %s" % (path, site, path2))
+def site_deploy(path, site, path2, branch):
+  run("/usr/bin/jenkins-scripts/site-deploy.sh %s %s %s %s" % (path, site, path2, branch))
 
 def site_clear_apc(site):
   run("/usr/bin/jenkins-scripts/site-clear-apc-cache.sh %s" % (site))
