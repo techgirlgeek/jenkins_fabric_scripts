@@ -7,7 +7,7 @@ def env():
 def site_deploy(path, site, path2):
   run("/usr/bin/jenkins-scripts/site-deploy.sh %s %s %s" % (path, site, path2))
 
-def site_archive():
+def site_archive(site):
   run("/usr/bin/jenkins-scripts/site-clear-apc-cache.sh %s" % (site))
 
 def site_post_deploy_oncampus(path, site, path2, slave):
