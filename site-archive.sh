@@ -7,7 +7,7 @@ cd /$1/$2/$3
 drush archive-dump --destination=/$5/$4/$6/$4-$(date +'%Y%m%d_%H%M%S').tar 
 
 # Change to archive directory
-cd /$5/$2/$6 
+cd /$5/$4/$6 
 
 # Gunzip the last file added to the archive directory
 ls -t | head -n 1 | xargs gzip 
