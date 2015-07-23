@@ -1,12 +1,16 @@
 #!/bin/bash -x
-env
-echo 'site being updated: ' $1
 
-site=$1.colorado.edu
+# Change to site's working directory
+cd /$1/$2/$3 
 
-if [ $1 == "nrsmboulder.org" ]; then
-  site="nrsmboulder.org"
-fi
+# Start archive-dump using drush
+drush archive-dump --destination=/$5/$4/$6/$4-$(date +'%Y%m%d_%H%M%S').tar 
 
-# ssh into hdsapache0 and archive site being deployed
-ssh prodweb "cd /var/www/web/$site/public && drush archive-dump --destination=/web/$1/archives/$1-$(date +'%Y%m%d_%H%M%S').tar && cd /web/$1/archives && ls -t | head -n 1 | xargs gzip && ls -t | tail -n +3 | xargs rm --"
+# Change to archive directory
+cd /$5/$2/$6 
+
+# Gunzip the last file added to the archive directory
+ls -t | head -n 1 | xargs gzip 
+
+# Remove the oldest archive file
+ls -t | tail -n +3 | xargs rm --

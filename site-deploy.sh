@@ -1,28 +1,23 @@
 #!/bin/bash -x
 #env
 
-#site=$1.colorado.edu
-
-#if [ $1 == "nrsmboulder.org" ]; then
-#  site="nrsmboulder.org"
-#fi
-
-# ssh into hdsapache0 rebase codebase to master
+# Change to site working directory
 cd /$1/$2/$3 
 
+# Checkout correct branch
 git checkout $4
 
+# Fetch repository information and rebase
 git fetch && git rebase 
 
+# Update dataabase information, if required
 drush updb -y 
 
+# Clear drupal cache
 drush cc all 
 
+# Revert all site features
 drush fra -y 
 
+# Clear drupal cache one more time, because drupal
 drush cc all 
-
-#wget --no-check-certificate -O - -q https://a0.hdslc.colorado.edu/clear_apc.php" 
-
-# ssh into hdsapache1 rebase codebase to master
-#ssh prodweb1 "cd /var/www/web/$site/public && git fetch && git rebase && drush cc all && wget --no-check-certificate -O - -q https://a1.hdslc.colorado.edu/clear_apc.php"
